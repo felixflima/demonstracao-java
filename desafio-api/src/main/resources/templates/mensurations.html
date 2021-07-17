@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+      
+<head>
+  <meta charset="UTF8" />
+  <meta name="viewport" content="width=device-width" />
+  
+  <title>Teste Dti Digital</title>
+  
+  <link th:href="@{/webjars/bootstrap/css//bootstrap.min.css}"
+    rel="stylesheet"/>
+
+  <link th:href="@{/webjars/bootstrap/css//bootstrap-theme.min.css}"
+    rel="stylesheet"/>
+</head>
+
+<body>
+  <div class="panel panel-default" style="margin: 10px">
+    <div class="panel-heading">
+      <h1 class="panel-title">Dados da Medição</h1>
+    </div>
+    
+  <form class="form-inline" method="POST" th:object="${mensuration}"
+        th:action="@{/mensurations}" style="margin: 20px 0">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Data" th:field="*{mensurationDate}" />
+      <input type="text" class="form-control" placeholder="Valor Mínimo" th:field="*{mensurationMinValue}" />
+      <input type="text" class="form-control" placeholder="Valor Máximo" th:field="*{mensurationMaxValue}" />
+      <input type="text" class="form-control" placeholder="Local" th:field="*{mensurationPlace}" />
+      <button type="submit" class="btn btn-primary">Adicionar</button>
+    </div>
+  </form>
+  </div>
+</body>
+
+</html>
