@@ -24,10 +24,10 @@
   <form class="form-inline" method="POST" th:object="${mensuration}"
         th:action="@{/mensurations}" style="margin: 20px 0">
     <div class="form-group">
-      <input type="text" class="form-control" placeholder="Data" th:field="*{mensurationDate}" />
-      <input type="text" class="form-control" placeholder="Valor Mínimo" th:field="*{mensurationMinValue}" />
-      <input type="text" class="form-control" placeholder="Valor Máximo" th:field="*{mensurationMaxValue}" />
-      <input type="text" class="form-control" placeholder="Local" th:field="*{mensurationPlace}" />
+      <input type="text" size=10 class="form-control" placeholder="Data" th:field="*{mensurationDate}" />
+      <input type="text" size=8 class="form-control" placeholder="Valor Mínimo" th:field="*{mensurationMinValue}" />
+      <input type="text" size=8 class="form-control" placeholder="Valor Máximo" th:field="*{mensurationMaxValue}" />
+      <input type="text" size=60 class="form-control" placeholder="Local" th:field="*{mensurationPlace}" />
       <button type="submit" class="btn btn-primary">Adicionar</button>
     </div>
   </form>

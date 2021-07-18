@@ -1,39 +1,42 @@
 package com.dtidigital.desafio.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.ColumnResult;
+import javax.persistence.ConstructorResult;
+import javax.persistence.SqlResultSetMapping;
 
-@Entity
-@Table(name = "vw_mensuration_average")
-public class MensurationsAverage {
+@SqlResultSetMapping(name = "mapeamento.MensurationAverageDto", classes = {
+		@ConstructorResult(targetClass = MensurationAverageDto.class, columns = {
+				@ColumnResult(name = "mensuration_date", type = String.class),
+				@ColumnResult(name = "max_value_average", type = Float.class),
+				@ColumnResult(name = "min_value_average", type = Float.class)
+		})
+})
+public class MensurationAverageDto {
 
-	@Id
-    @Column(name="mensuration_date")
     private String mensurationDate;
     
-    @Column(name="max_value_average")
 	private Float MaxValueAverage;
 
-    @Column(name="min_value_average")
 	private Float MinValueAverage;
 
-	public String getMensurationDate() {
-		return mensurationDate;
-	}
 
-	
-	public MensurationsAverage() {
+	public MensurationAverageDto() {
 		super();
 	}
 
-
-	public MensurationsAverage(String mensurationDate, Float maxValueAverage, Float minValueAverage) {
+	public MensurationAverageDto(String mensurationDate, Float maxValueAverage, Float minValueAverage) {
 		super();
 		this.mensurationDate = mensurationDate;
 		MaxValueAverage = maxValueAverage;
 		MinValueAverage = minValueAverage;
+	}
+
+	public MensurationsAverage transformaEmObjeto() {
+		return new MensurationsAverage(mensurationDate, MaxValueAverage, MinValueAverage);
+	}
+	
+	public String getMensurationDate() {
+		return mensurationDate;
 	}
 
 	public void setMensurationDate(String mensurationDate) {
@@ -74,7 +77,7 @@ public class MensurationsAverage {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		MensurationsAverage other = (MensurationsAverage) obj;
+		MensurationAverageDto other = (MensurationAverageDto) obj;
 		if (MaxValueAverage == null) {
 			if (other.MaxValueAverage != null)
 				return false;
@@ -92,6 +95,5 @@ public class MensurationsAverage {
 			return false;
 		return true;
 	}
-
 
 }

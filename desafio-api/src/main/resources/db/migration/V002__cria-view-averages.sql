@@ -1,6 +1,6 @@
 create view vw_mensuration_average as
 (SELECT
-     mensuration_date, 
+     date_format(mensuration_date,'%d-%m-%Y') as mensuration_date, 
      coalesce(avg(mensuration_min_value),0) as min_value_avg, 
      coalesce(avg(mensuration_max_value), 0) as max_value_avg 
 FROM 
