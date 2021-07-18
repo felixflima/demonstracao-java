@@ -8,22 +8,23 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "vw_mensuration_average")
 public class MensurationsAverage {
-
+	
 	@Id
     @Column(name="mensuration_date")
     private String mensurationDate;
     
-    @Column(name="max_value_average")
+    @Column(name="mensuration_max_value")
 	private Float MaxValueAverage;
 
-    @Column(name="min_value_average")
+    @Column(name="mensuration_min_value")
 	private Float MinValueAverage;
 
-	public String getMensurationDate() {
+
+    public String getMensurationDate() {
 		return mensurationDate;
 	}
 
-	
+
 	public MensurationsAverage() {
 		super();
 	}
